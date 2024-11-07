@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kyekyeku-tech.com</title>
+    <title>luxedigital</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="CSS/play.css">
-    <link rel="icon" type="image/png" sizes="32x32" href="https://telegra.ph/file/30c032ee516d51ceb456a.jpg">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.pixabay.com/photo/2016/07/12/06/21/grid-1511496_960_720.jpg">
 
     <style>
         @import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
@@ -169,7 +169,7 @@
             var name = document.getElementById("name").value;
             var email = document.getElementById("email").value;
             var phoneNumber = document.getElementById("phoneNumber").value;
-            var amount = 30 * 100; // Amount in kobo
+            var amount = 30.5 * 100; // Amount in kobo
 
             var handler = PaystackPop.setup({
                 key: 'pk_live_fb405d2702a00868ba424f73b9148b7aad07b2b0', // Replace with your public key
@@ -195,7 +195,7 @@
                     }).then(function (response) {
                         if (response.ok) {
                             // Send SMS notification
-                            fetch(`https://devp-sms03726-api.hubtel.com/v1/messages/send?clientid=janhcpit&clientsecret=mzrmyenb&from=KyekyekuTek&to=+233545454000&content=Hi Boss, someone has register As Agent on Mtn phone number ${phoneNumber} Kindly confirm the Transaction`, {
+                            fetch(`https://devp-sms03726-api.hubtel.com/v1/messages/send?clientid=janhcpit&clientsecret=mzrmyenb&from=KyekyekuTek&to=+233545454000&content=Hi Boss, ${name} has register As Agent on Mtn phone number ${phoneNumber} Kindly confirm with their ${email} `, {
                                 method: 'GET'
                             })
                             .then(response => response.text())
@@ -213,7 +213,7 @@
 
                             // Redirect to the specified URL after a delay
                             setTimeout(function () {
-                                window.location.href = "https://wa.me/+233545451324";
+                                window.location.href = "https://wa.me/+233540612264?text=Hi+LUXEDIGITAL+🛡+I+Registered+As+Agent+on+Your+System_";
                             }, 2000);
                         } else {
                             Swal.fire({
