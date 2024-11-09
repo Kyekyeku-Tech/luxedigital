@@ -159,7 +159,7 @@
             };
 
     const agents = {
-        "KSARFO": { email: "safooppong121@gmail.com", phone: "233545971353" },
+        "KSARFO": { email: "safooppong121@gmail.com", phone: "233545454000" },
         "CLIFTON14": { email: "cliftinaeva@gmail.com", phone: "233544469820" },
         "EWUSI WISDOM": { email: "ewusiw125@gmail.com", phone: "233558575831" },
         "NANA YAW": { email: "vhimbowoy98@gmail.com", phone: "233558385107" },
@@ -316,18 +316,25 @@
         };
 
         const package = packageNames[selectedBundle];
-        const apiUrl = `https://apps.mnotify.net/smsapi?key=zwNY4rjo1XWnMXn8Om7Q8gk1U&to=${agentPhone}&msg=Your request to ${phoneNumber} has been on processing with ${package}&sender_id=LUXEDIGITAL`;
+    const apiUrl = `https://apps.mnotify.net/smsapi?key=zwNY4rjo1XWnMXn8Om7Q8gk1U&to=${agentPhone}&msg=Your request to ${phoneNumber} has been on processing with ${package}&sender_id=LUXEDIGITAL`;
 
-        fetch(apiUrl)
-            .then(response => response.json())
-            .then(data => {
-                console.log("Agent SMS sent successfully:", data);
-            })
-            .catch(error => {
-                console.error("Error sending Agent SMS:", error);
-                Swal.fire('Error', `There was an error sending the SMS to the agent: ${error.message}`, 'error');
-            });
-    }
+    fetch(apiUrl)
+        .then(response => {
+            if (!response.ok) {
+                return response.json().then(data => { 
+                    throw new Error(`SMS API Error: ${JSON.stringify(data)}`);
+                });
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log("Agent SMS sent successfully:", data);
+        })
+        .catch(error => {
+            console.error("Error sending Agent SMS:", error);
+            Swal.fire('Error', `There was an error sending the SMS to the agent: ${error.message}`, 'error');
+        });
+}
 </script>
     </form>
 </body>
