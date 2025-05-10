@@ -1,118 +1,544 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> - Maintenance</title>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+  <meta charset="UTF-8">
+  <title>Boom master page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a2d9d6c3c0.js" crossorigin="anonymous"></script>
+  <style>
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #b9b7b7, #e0e0e0);
+      padding: 20px;
+      text-align: center;
+    }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
+    .services {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+    }
 
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background: linear-gradient(135deg, #f7f7fa, #f7f7fa);
-            color: #ffffff;
-            text-align: center;
-            overflow: hidden;
-        }
+    .service {
+      background: #fff;
+      padding: 3px;
+      margin-top: 20px;
+      border-radius: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      align-items: center;
+  justify-content: center;
+  height: 100px;
+  width: 150px;
+    }
 
-        .container {
-            position: relative;
-            width: 100%;
-            max-width: 500px;
-            background: blue;
-            backdrop-filter: blur(10px);
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 8px 5px rgb(253, 6, 6);
-            animation: fadeIn 1.2s ease-in-out;
-        }
+    .service img {
+  max-width: 100%;
+  max-height: 80px;
+  object-fit: contain;
+}
+    .service {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.service:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(51, 241, 3, 0.979);
+}
 
-        .logo {
-            width: 150px;
-            position: absolute;
-            top: -90px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
+    
+    .platform-logo {
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+}
 
-        h2 {
-            font-size: 22px;
-            font-weight: 600;
-            margin-top: 30px;
-        }
+    .whatsapp-button {
+      display: inline-block;
+      align-items: center;
+      margin-top: 40px;
+      padding: 12px 20px;
+      background-color: #04fa5e;
+      color: white;
+      font-size: 1.1em;
+      text-decoration: none;
+      border-radius: 8px;
+    }
 
-        p {
-            font-size: 16px;
-            margin: 10px 0;
-            opacity: 0.8;
-        }
+    .whatsapp-button:hover {
+      background-color: #070700;
+    }
 
-        .loader {
-            width: 50px;
-            height: 50px;
-            border: 5px solid rgba(10, 10, 10, 0.404);
-            border-top: 5px solid #68fa06;
-            border-radius: 50%;
-            margin: 20px auto;
-            animation: spin 1s linear infinite;
-        }
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 2rem;
+      font-weight: 600;
+    }
+    .platform-btns {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+    .platform-btns button {
+      padding: 18px 35px;
+      font-size: 18px;
+      border: none;
+      border-radius: 19px;
+      cursor: pointer;
+      font-weight: 600;
+      color: white;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      transform: scale(1);
+    }
+    .platform-btns button:hover {
+      transform: scale(1.05);
+    }
+    .tiktok { background-color: #000000; }
+    .instagram { background-color: #e1306c; }
+    .youtube { background-color: #ff0000; }
+    .facebook { background-color: #0400ff; }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+    .active-btn {
+      box-shadow: 0 0 15px 5px rgba(255,255,255,0.3);
+    }
 
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-        .btn {
-            display: inline-block;
-            padding: 10px 20px;
-            color: white;
-            background: #FF9800;
-            text-decoration: none;
-            font-size: 1.2em;
-            border-radius: 5px;
-            transition: 0.3s;
-        }
-        .btn:hover {
-            
-            color: rgb(240, 7, 7);
-            background: #1eff00;
-        }
-    </style>
+    form {
+      max-width: 450px;
+      margin: auto;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(15px);
+      padding: 30px;
+      border-radius: 20px;
+      display: none;
+      animation: fadeIn 0.5s ease-in-out;
+      box-shadow: 0 0 20px rgba(255,255,255,0.2);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    form label {
+      display: block;
+      margin-top: 15px;
+      margin-bottom: 5px;
+      text-align: left;
+      color: #f0f0f0;
+    }
+
+    input {
+      width: 85%;
+      padding: 12px;
+      border-radius: 10px;
+      border: none;
+      margin-bottom: 15px;
+      font-size: 16px;
+    }
+
+    select {
+      width: 90%;
+      padding: 12px;
+      border-radius: 10px;
+      border: none;
+      margin-bottom: 15px;
+      font-size: 16px;
+    }
+
+    #amount {
+      font-size: 18px;
+      font-weight: bold;
+      margin: 10px 0 20px;
+    }
+
+    button[type="button"] {
+      background-color: #fdd803;
+      color: rgb(14, 0, 0);
+      padding: 14px;
+      width: 60%;
+      font-size: 16px;
+      border: none;
+      border-radius: 12px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    button[type="button"]:hover {
+      background-color: #413e3a;
+      color: #fcce03;
+    }
+
+    @media (max-width: 500px) {
+      .platform-btns {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    form.form-tiktok { background-color: #111111; }
+    form.form-instagram { background: linear-gradient(135deg, #e1306c, #f77737); }
+    form.form-youtube { background-color: #cc0000; }
+    form.form-facebook { background-color: #1c05f3; }
+    
+
+    .hidden { display: none; }
+    .marquee-container {
+  overflow: hidden;
+  width: 100%;
+  margin-top: 50px;
+  position: relative;
+}
+
+.marquee-container {
+  overflow: hidden;
+  width: 100%;
+  
+  padding: 20px 0;
+}
+
+.services.marquee {
+  display: flex;
+  animation: scroll 20s linear infinite;
+  gap: 40px;
+}
+
+@keyframes scroll {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+.service {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  width: 150px;
+}
+
+.service img {
+  max-width: 100%;
+  max-height: 80px;
+  object-fit: contain;
+}
+.marquee-container {
+  position: relative;
+  overflow: hidden;
+}
+.marquee-container::before,
+.marquee-container::after {
+  content: "";
+  position: absolute;
+  width: 40px;
+  top: 0;
+  bottom: 0;
+  z-index: 2;
+}
+.marquee-container::before {
+  left: 0;
+  background: linear-gradient(to right, #630202, transparent);
+}
+.marquee-container::after {
+  right: 0;
+  background: linear-gradient(to left, #0602fd, transparent);
+}
+.marquee:hover {
+  animation-play-state: paused;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
+.glass-clock {
+  position: fixed;
+  top: 10px;
+  right: 30px;
+  padding: 15px 25px;
+  font-size: 20px;
+  font-family: 'Orbitron', sans-serif;
+  color: #ff0037;
+  background: transparent ;
+  border: 1px solid rgba(18, 2, 253, 0.959);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 14px rgba(0, 255, 255, 0.2);
+  z-index: 9999;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-clock:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 30px rgba(0, 26, 255, 0.4);
+}
+ 
+
+  </style>
 </head>
-<body>
-    <div class="container">
-        <img src="https://newlsa.netlify.app/kyekyeku.png" alt="kyekyeku Logo" class="logo">
-        <h2>🚧 Maintenance in Progress 🚧</h2>
-        <p>This website is currently undergoing scheduled maintenance. Please visit our 👇 new site below:</p>
-        <a href="https://kyekyekutech.site" class="btn">Go to KyekyekuTech.site</a>
-        <div class="loader"></div>
-        <p>Login with your old credentials if you have money here</p>
-        <p><strong><a href="tel:0548785316" class="btn">info.📞 054 878 5316</strong></a></p>
+<div class="glass-clock" id="modern-clock"></div>
+  <body class="bg-gray-100 text-gray-900 font-sans">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-purple-600 to-pink-500 p-6 text-white text-center">
+      <h1 class="text-4xl font-bold mb-2">🚀 Boom 💥 Master Room</h1>
+      <p class="text-lg">Gain Real Followers & Likes — TikTok | Instagram | YouTube</p>
+    </header>
+
+<p>We offer a variety of services to help you grow your social media accounts. such as Audiomack all services, Boomplay, Apple Music, Sportify all services, Whatsapp Channel members, facebook Twitter and more </p><br>
+
+<h2 style="color: #0616f7;">Choose a platform to get started:</h2>
+
+<div class="platform-btns">
+  <button id="btn-tiktok" class="tiktok" onclick="showForm('tiktok')">
+    <img src="https://www.pngall.com/wp-content/uploads/13/TikTok-Logo-PNG-Images-HD.png" alt="TikTok" class="platform-logo">
+    TikTok
+  </button>
+  <button id="btn-facebook" class="facebook" onclick="showForm('facebook')">
+    <i class="fab fa-facebook">Facebook</i>
+    
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" style="width: 20px; height: 20px; margin-left: 5px;">
+     
+  </button>
+  <button id="btn-instagram" class="instagram" onclick="showForm('instagram')">
+    <i class="fab fa-instagram">Instagram</i>
+    <div class="btn">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="YouTube" style="width: 20px; height: 20px; margin-left: 5px;">
     </div>
+  </button>
+  <button id="btn-youtube" class="youtube" onclick="showForm('youtube')">
+    <i class="fab fa-youtube">YouTube</i>
+    <div class="btn">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg" alt="YouTube" style="width: 20px; height: 20px; margin-left: 5px;">
+  </div>
+  </button>
+</div>
+
+<form id="boostForm">
+  <input type="hidden" id="platform">
+  <input type="hidden" id="email" value="info@kyekyeku.tech">
+
+  <label class="block font-semibold mb-1">Username</label>
+        <input type="text" id="username" class="w-full p-3 border rounded-lg" placeholder="@username" required />
+      </div>
+
+  <label>WhatsApp Number</label>
+  <input type="tel" id="phoneNumber" required>
+
+  <label>Service Type</label>
+  <select id="serviceType" onchange="toggleLinkField()" required>
+    <option value="">Select Service</option>
+    <option value="followers">Followers</option>
+    <option value="likes">Likes</option>
+  </select>
+
+  <div id="linkDiv" style="display:none">
+    <label>Video/Image Link</label>
+    <input type="url" id="mediaLink">
+  </div>
+
+  <label>Quantity</label>
+  <input type="number" id="quantity" min="100" step="100" oninput="calculateAmount()" required>
+
+  <p style="color: white;">Total: <span id="amount">0.00</span> GHC</p>
+
+  <button type="button" onclick="payWithPaystack()">Pay Now</button>
+</form>
+<h1>Other Services</h1>
+<div class="marquee-container">
+  <div class="services marquee">
+    <div class="service">
+      <a href="https://wa.me/233545454000?text=Hi%2C+I%27m+interested+in+your+Audiomack+services." target="_blank">  
+    <img src="https://th.bing.com/th/id/OIP.8SxTA_VPo2laQW3zlu7_qAHaEv?cb=iwp1&w=500&h=320&rs=1&pid=ImgDetMain" alt="Audiomack">
+      </a>
+    </div>
+    <div class="service">
+      <a href="https://wa.me/233545454000?text=Hi%2C+I%27m+interested+in+your+Boomplay+services." target="_blank">  
+      <img src="https://asset.brandfetch.io/iduFCCNnH6/idzH6y_BTa.png?updated=1681736908337" alt="Boomplay">
+      </a>
+    </div>
+    <div class="service">
+      <a href="https://wa.me/233545454000?text=Hi%2C+I%27m+interested+in+your+Apple+Music+services." target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple Music">
+      </a>
+    </div>
+    <div class="service">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Spotify_icon.svg" alt="Spotify">
+    </div>
+    <div class="service">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    </div>
+    
+    <div class="service">
+      <img src="https://th.bing.com/th/id/R.88568e632a200ce56cae7ede31e81cc8?rik=mBfH%2fCME%2bc6AhA&pid=ImgRaw&r=0" alt="Twitter">
+    </div>
+  </div>
+</div>
+
+
+<a class="whatsapp-button" href="https://wa.me/233545454000" target="_blank">💬 Contact Us on WhatsApp</a>
+
+<script src="https://js.paystack.co/v1/inline.js"></script>
+
+<script>
+  function showForm(platform) {
+    ['tiktok', 'instagram', 'youtube', 'facebook'].forEach(id => {
+      document.getElementById(`btn-${id}`).classList.remove('active-btn');
+    });
+    document.getElementById(`btn-${platform}`).classList.add('active-btn');
+
+    const form = document.getElementById('boostForm');
+    form.style.display = 'block';
+
+    form.classList.remove('form-tiktok', 'form-instagram', 'form-youtube', 'form-facebook');
+    form.classList.add(`form-${platform}`);
+
+    form.reset();
+    const serviceType = document.getElementById('serviceType');
+    serviceType.innerHTML = `
+      <option value="">Select Service</option>
+      <option value="${platform === 'youtube' ? 'subscribers' : 'followers'}">${platform === 'youtube' ? 'Subscribers' : 'Followers'}</option>
+      <option value="likes">Likes</option>
+    `;
+    document.getElementById('platform').value = platform;
+    document.getElementById('email').value = "user@kyekyeku.tech";
+    document.getElementById('fullname').value = "Kyekyeku User";
+    document.getElementById('amount').textContent = "0.00";
+    document.getElementById('linkDiv').style.display = 'none';
+  }
+
+  function toggleLinkField() {
+    const serviceType = document.getElementById('serviceType').value;
+    document.getElementById('linkDiv').style.display = serviceType === 'likes' ? 'block' : 'none';
+    calculateAmount();
+  }
+
+  function calculateAmount() {
+    const type = document.getElementById('serviceType').value;
+    const qty = parseInt(document.getElementById('quantity').value);
+    let rate = 0;
+
+    const platform = document.getElementById('platform').value;
+
+    if (type === 'likes') {
+      rate = platform === 'youtube' ? 13 : 7;
+    }
+    if (type === 'followers' || type === 'subscribers') {
+      if (platform === 'youtube') {
+        rate = 86;
+      } else {
+        rate = 19;
+      }
+    }
+
+    const cost = qty ? (qty / 1000) * rate : 0;
+    document.getElementById('amount').textContent = cost.toFixed(2);
+    return cost;
+  }
+
+  function payWithPaystack() {
+  const email = document.getElementById('email').value;
+  const fullname = document.getElementById('username').value;
+  const phoneNumber = document.getElementById('phoneNumber').value;
+  const serviceType = document.getElementById('serviceType').value;
+  const mediaLink = document.getElementById('mediaLink').value.trim();
+    const rawAmount = calculateAmount();
+    const amount = Math.round(rawAmount * 100); // In pesewas
+
+    if (!email || !phoneNumber || !rawAmount) {
+      alert("Please fill all required fields");
+      return;
+    }
+
+    var handler = PaystackPop.setup({
+      key: 'pk_live_fb405d2702a00868ba424f73b9148b7aad07b2b0',
+      email: email,
+      amount: amount,
+      currency: 'GHS',
+      ref: 'KYEKYEKU-' + Math.floor((Math.random() * 1000000000) + 1),
+      metadata: {
+        custom_fields: [
+          {
+            display_name: "Full Name",
+            variable_name: "full_name",
+            value: fullname
+          },
+          {
+            display_name: "Phone Number",
+            variable_name: "phone_number",
+            value: phoneNumber
+          }
+        ]
+      },
+      callback: function(response) {
+        alert('Payment successful! Reference: ' + response.reference);
+
+        const userNumber = phoneNumber;
+        const quantity = document.getElementById('quantity').value;
+        const serviceType = document.getElementById('serviceType').value;
+        const totalFees = calculateAmount();
+
+        sendSMS(userNumber, quantity, serviceType, totalFees);
+      }
+    });
+
+    handler.openIframe();
+  }
+
+  // ✅ SMS function declared outside
+  function sendSMS(userNumber, quantity, serviceType, totalFees) {
+  const fullname = document.getElementById('username').value; // ✅ Gets the username
+  const mediaLinkElement = document.getElementById('mediaLink'); // ✅ Correct ID
+  const mediaLink = mediaLinkElement ? mediaLinkElement.value.trim() : '';
+
+  // User SMS
+  const userMessage = `Your ${quantity} ${serviceType} request has been received and is being processed. Delivery will take up to 30 mins - 1 hr. Total: GHC ${totalFees.toFixed(2)}`;
+  const userApiUrl = `https://apps.mnotify.net/smsapi?key=zwNY4rjo1XWnMXn8Om7Q8gk1U&to=${userNumber}&msg=${encodeURIComponent(userMessage)}&sender_id=LUXEDIGITAL`;
+
+  // Admin SMS
+  let adminMessage = `ORDER: ${fullname} ordered ${quantity} ${serviceType}.`;
+  if (serviceType === 'likes' && mediaLink !== '') {
+    adminMessage += ` Link: ${mediaLink}`;
+  }
+  const adminApiUrl = `https://apps.mnotify.net/smsapi?key=zwNY4rjo1XWnMXn8Om7Q8gk1U&to=0545454000&msg=${encodeURIComponent(adminMessage)}&sender_id=LUXEDIGITAL`;
+
+  // Send User SMS
+  fetch(userApiUrl)
+    .then(res => res.json())
+    .then(data => {
+      console.log("User SMS Sent:", data);
+      if (data.status !== "success") alert("User SMS sending failed.");
+    })
+    .catch(err => {
+      console.error("User SMS Failed:", err);
+      alert("Network error while sending user SMS.");
+    });
+
+  // Send Admin SMS
+  fetch(adminApiUrl)
+    .then(res => res.json())
+    .then(data => {
+      console.log("Admin SMS Sent:", data);
+      if (data.status !== "success") alert("Admin SMS sending failed.");
+    })
+    .catch(err => {
+      console.error("Admin SMS Failed:", err);
+      alert("Network error while sending admin SMS.");
+    });
+}
+
+  // Modern Clock
+  function updateClock() {
+    const now = new Date();
+    const options = { hour: '2-digit', minute: '2-digit', second: '2-digit' };
+    document.getElementById('modern-clock').textContent = now.toLocaleTimeString('en-US', options);
+  }
+  setInterval(updateClock, 1000);
+  updateClock();
+  </script>
 </body>
 </html>
