@@ -25,13 +25,13 @@
     header {
       background: linear-gradient(135deg, #6a11cb, #2575fc);
       color: white;
-      padding: 40px 20px;
+      padding: 10px 20px;
       text-align: center;
     }
 
     header h1 {
       font-size: 2rem;
-      margin-bottom: 10px;
+      margin-bottom: 5px;
     }
 
     header p {
@@ -254,6 +254,26 @@
     .whatsapp-button:hover {
       background-color: #070700;
     }
+    form.tiktok-theme {
+  background: linear-gradient(135deg, #000000, #ff0050);
+  color: white;
+}
+
+form.instagram-theme {
+  background: linear-gradient(135deg, #feda75, #d62976, #962fbf);
+  color: white;
+}
+
+form.facebook-theme {
+  background: linear-gradient(135deg, #1877f2, #4e69a2);
+  color: white;
+}
+
+form.youtube-theme {
+  background: linear-gradient(135deg, #ff0000, #cc0000);
+  color: white;
+}
+
   </style>
 </head>
 <body>
@@ -333,18 +353,40 @@
     <div class="service">
       <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
     </div>
-    
     <div class="service">
       <img src="https://th.bing.com/th/id/R.88568e632a200ce56cae7ede31e81cc8?rik=mBfH%2fCME%2bc6AhA&pid=ImgRaw&r=0" alt="Twitter">
     </div>
   </div>
-</div>
+
 
   <script>
     function showForm(platform) {
-      document.getElementById('platform').value = platform;
-      document.getElementById('boostForm').style.display = 'block';
-    }
+  const form = document.getElementById('boostForm');
+  document.getElementById('platform').value = platform;
+
+  // Remove existing platform classes
+  form.classList.remove('tiktok-theme', 'facebook-theme', 'instagram-theme', 'youtube-theme');
+
+  // Add the current platform class
+  switch (platform) {
+    case 'tiktok':
+      form.classList.add('tiktok-theme');
+      break;
+    case 'instagram':
+      form.classList.add('instagram-theme');
+      break;
+    case 'facebook':
+      form.classList.add('facebook-theme');
+      break;
+    case 'youtube':
+      form.classList.add('youtube-theme');
+      break;
+  }
+
+  // Show the form
+  form.style.display = 'block';
+}
+
 
     function toggleLinkField() {
       const serviceType = document.getElementById("serviceType").value;
